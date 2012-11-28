@@ -1,6 +1,6 @@
 # ifuture
 
-An implementation of Futures built on Ruby Fork and IChannel.
+An implementation of Futures for Ruby using process forks with IChannel.
 
 ## Usage
 
