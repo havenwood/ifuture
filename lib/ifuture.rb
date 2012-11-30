@@ -2,8 +2,8 @@ require 'ifuture/version'
 require 'ichannel'
 
 class IFuture
-  def initialize &block
-    @channel = IChannel.new Marshal
+  def initialize serializer = Marshal, &block
+    @channel = IChannel.new serializer
     
     @pid = fork do
       @channel.put block.call
@@ -11,11 +11,9 @@ class IFuture
   end
   
   def ready?
-    begin
-      !Process.getpgid(@pid)
-    rescue Errno::ESRCH
-      true
-    end
+    !Process.getpgid @pid
+  rescue Errno::ESRCH
+    true
   end
   
   def value
