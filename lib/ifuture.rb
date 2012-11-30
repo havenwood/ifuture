@@ -2,8 +2,8 @@ require 'ifuture/version'
 require 'ichannel'
 
 class IFuture
-  def initialize &block
-    @channel = IChannel.new Marshal
+  def initialize serializer = Marshal, &block
+    @channel = IChannel.new serializer
     
     @pid = fork do
       @channel.put block.call
