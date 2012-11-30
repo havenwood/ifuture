@@ -16,5 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   
   gem.add_development_dependency 'ichannel'
+  gem.add_development_dependency 'minitest'
+  
   gem.add_runtime_dependency 'ichannel'
 end
