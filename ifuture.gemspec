@@ -6,7 +6,7 @@ require 'ifuture/version'
 Gem::Specification.new do |gem|
   gem.name          = 'ifuture'
   gem.version       = IFuture::VERSION
-  gem.authors       = ['havenn']
+  gem.authors       = ['Shannon Skipper']
   gem.email         = ['shannonskipper@gmail.com']
   gem.description   = %q{Futures Implemented on Fork}
   gem.summary       = %q{Futures implemented on top of IChannel for easy Forking.}
