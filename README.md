@@ -1,4 +1,5 @@
 # ifuture
+[![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/Havenwood/ifuture)
 
 An implementation of Futures for Ruby using process forks with [IChannel](https://github.com/robgleeson/ichannel).
 
