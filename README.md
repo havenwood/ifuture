@@ -1,8 +1,8 @@
 # ifuture
 
-An implementation of Futures for Ruby using process forks with IChannel.
+An implementation of Futures for Ruby using process forks with [IChannel](https://github.com/robgleeson/ichannel).
 
-The Future starts running right away, but isn't blocking because it runs in its own Process fork. If we wait until the Future is ready before asking for its value, the value will be returned right away. If we ask early, it blocks until delivery.
+The Future starts running right away, but isn't blocking because it runs in its own fork and uses IChannel to communicate with the parent Process. This allows multithreading with GIL contraints. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
 
 ## Usage
 
