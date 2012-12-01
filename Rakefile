@@ -1,5 +1,5 @@
 task default: [:test]
 
 task :test do
-  ruby 'spec/ifuture_spec.rb'
+  ruby 'test/ifuture_test.rb'
 end
