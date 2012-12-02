@@ -35,5 +35,13 @@ describe IFuture do
         assert_equal @future.value, "peppermint"
       end
     end
+
+    describe 'when asked for value a second time' do
+      it 'will return a cached copy' do
+        2.times do 
+          assert_equal @future.value, "peppermint"
+        end
+      end
+    end
   end
 end
