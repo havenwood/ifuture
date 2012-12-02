@@ -11,9 +11,7 @@ class IFuture
   end
   
   def ready?
-    !Process.getpgid @pid
-  rescue Errno::ESRCH
-    true
+    @channel.readable?
   end
   
   def value
