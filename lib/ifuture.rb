@@ -15,7 +15,10 @@ class IFuture
   end
   
   def value
+    if defined?(@value)
+      return @value
+    end
     Process.wait @pid
-    @channel.get
+    @value = @channel.get
   end
 end
