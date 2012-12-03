@@ -11,7 +11,7 @@ class IFuture
   end
   
   def ready?
-    @channel.readable?
+    defined?(@value) ? true : @channel.readable?
   end
   
   def value
