@@ -2,7 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/Havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Havenwood/ifuture)
 
-An implementation of Futures for Ruby using process forks with [IChannel](https://github.com/robgleeson/ichannel).
+An implementation of Futures (see [Celluloid](https://github.com/celluloid/celluloid)) for Ruby using process forks with [IChannel](https://github.com/robgleeson/ichannel).
 
 The Future starts running right away, but isn't blocking because it runs in its own fork and uses IChannel to communicate with the parent Process. This allows multithreading without the GIL blocking as it would with Threads. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
 
