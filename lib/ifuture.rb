@@ -1,10 +1,12 @@
-require 'ifuture/version'
 require 'ichannel'
+require 'ifuture/error'
+require 'ifuture/version'
 
 class IFuture
   def initialize serializer = Marshal, &block
-    @channel = IChannel.new serializer
+    raise Error::BlockMissing unless block_given?
     
+    @channel = IChannel.new serializer
     @pid = fork do
       @channel.put block.call
     end
@@ -15,9 +17,8 @@ class IFuture
   end
   
   def value
-    if defined?(@value)
-      return @value
-    end
+    return @value if defined?(@value)
+    
     Process.wait @pid
     @value = @channel.get
   end
