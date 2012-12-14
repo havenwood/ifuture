@@ -3,12 +3,10 @@ require 'ifuture/error'
 require 'ifuture/version'
 
 class IFuture
-  def initialize serializer = Marshal, &block
-    raise Error::BlockMissing unless block_given?
-    
+  def initialize serializer = Marshal
     @channel = IChannel.new serializer
     @pid = fork do
-      @channel.put block.call
+      @channel.put yield
     end
   end
   
