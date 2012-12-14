@@ -1,5 +1,4 @@
 require 'ichannel'
-require 'ifuture/error'
 require 'ifuture/version'
 
 class IFuture
