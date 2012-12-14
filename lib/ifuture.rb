@@ -2,11 +2,10 @@ require 'ifuture/version'
 require 'ichannel'
 
 class IFuture
-  def initialize serializer = Marshal, &block
+  def initialize serializer = Marshal
     @channel = IChannel.new serializer
-    
     @pid = fork do
-      @channel.put block.call
+      @channel.put yield
     end
   end
   
