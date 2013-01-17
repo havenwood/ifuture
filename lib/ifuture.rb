@@ -4,20 +4,23 @@ require 'ifuture/version'
 class IFuture
   def initialize serializer = Marshal
     @channel = IChannel.new serializer
-    pid = fork do
-      @channel.put yield
-    end
-    @thread = Process.detach pid
+    @thread = Process.detach fork { @channel.put yield }
   end
   
   def ready?
-    defined?(@value) ? true : @channel.readable?
+    if defined? @value
+      true
+    else
+      @channel.readable?
+    end
   end
   
   def value
-    return @value if defined?(@value)
-    
-    @thread.join
-    @value = @channel.get
+    if defined? @value
+      @value
+    else
+      @thread.join
+      @value = @channel.get
+    end
   end
 end
