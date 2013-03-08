@@ -1,5 +1,5 @@
 # ifuture
-[![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/Havenwood/ifuture)
+[![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Havenwood/ifuture)
 
 An implementation of Futures (see [Celluloid](https://github.com/celluloid/celluloid/wiki/futures)) for Ruby using process forks with [IChannel](https://github.com/robgleeson/ichannel).
