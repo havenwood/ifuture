@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ['lib']
   
-  gem.add_development_dependency 'ichannel'
+  gem.add_development_dependency 'ichannel', '~> 5.2.0'
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rake'
   
