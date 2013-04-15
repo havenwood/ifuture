@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rake'
   
-  gem.add_runtime_dependency 'ichannel'
+  gem.add_runtime_dependency 'ichannel', '~> 5.2.0'
   
   gem.signing_key = '/Users/shannonskipper/.gem/private/gem-private_key.pem'
   gem.cert_chain  = ['/Users/shannonskipper/.gem/private/gem-public_cert.pem']
