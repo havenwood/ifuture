@@ -2,7 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Havenwood/ifuture)
 
-Futures for Ruby implemented with [IChannel](https://github.com/robgleeson/ichannel) for interprocess communication via a UNIXSocket or Redis. Run some code in another process, locally or over the network, and get the result back later!
+A Futures gem for Ruby implemented with [IChannel](https://github.com/robgleeson/ichannel) for interprocess communication over a unix socket or Redis. Run some code in another process, locally or over the network, and get the result back later!
 
 The Future starts running right away, but isn't blocking because it runs in its own fork and uses IChannel to communicate with the parent Process. This allows multithreading without the GIL blocking as it would with Futures implemented on Threads. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
 
