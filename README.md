@@ -10,7 +10,7 @@ The Future starts running right away, but isn't blocking because it runs in its 
 
 `gem install ifuture`
 
-The Redis gem is required as well f you opt to use Redis instead of the default unix socket transporter.
+The Redis gem is required as well if you opt to use Redis instead of the default unix socket transporter.
 
 `gem install redis`
 
