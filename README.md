@@ -61,7 +61,7 @@ end
 
 ### IPC Transporter
 
-By default iFuture uses iChannel with unix sockets for transferring serialized code. An alternate choice is to use iChannel with Redis, locally or over the network.
+By default iFuture uses IChannel with unix sockets for transferring serialized code. An alternate choice is to use IChannel with Redis, locally or over the network.
 
 ```ruby
 require 'ifuture'
