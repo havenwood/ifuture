@@ -2,8 +2,8 @@ require 'ichannel'
 require 'ifuture/version'
 
 class IFuture
-  def initialize serializer = Marshal
-    @channel = IChannel.new serializer
+  def initialize serializer = Marshal, transport = :unix, options = nil
+    @channel = IChannel.send transport, serializer, options
     @thread = Process.detach fork { @channel.put yield }
   end
   
