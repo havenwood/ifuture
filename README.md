@@ -41,7 +41,7 @@ future.ready?
 future.value
 #=> "Sekret!!"
 ```
-### Alternative Serialization Formats
+### Code Serialization Format
 
 The default serialization format is Marshal, but you can use JSON, YAML or other formats that implement the methods #load and #dump.
 
@@ -55,7 +55,7 @@ future = IFuture.new JSON do
 end
 ```
 
-### Alternative IPC Transporter
+### IPC Transporter
 
 By default iFuture uses iChannel with unix sockets for transferring serialized code. To run your fork on a process on another machine over the network you can use iChannel with Redis.
 
