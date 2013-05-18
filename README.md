@@ -50,7 +50,7 @@ end
 
 ### Transport
 
-By default iFuture uses iChannel with unix sockets for transferring serialized code. To run your fork on a process located remoted over the network, you can specify that you want to you iChannel with Redis on a host of your choosing.
+By default iFuture uses iChannel with unix sockets for transferring serialized code. To run your fork on a process on another machine over the network you can use iChannel with Redis.
 
 ```ruby
 future = IFuture.new(Marshal, :redis, {host: 'localhost', key: 'readme'}) do
