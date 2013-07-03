@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Concurrent Futures with Processes}
   gem.summary       = %q{Futures implemented on top of IChannel for interprocess communication.}
   gem.homepage      = 'https://github.com/Havenwood'
-
+  gem.license       = 'MIT'
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ['lib']
   
