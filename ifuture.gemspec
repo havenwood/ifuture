@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = IFuture::VERSION
   gem.authors       = ['Shannon Skipper']
   gem.email         = ['shannonskipper@gmail.com']
-  gem.description   = %q{Concurrent Futures with Processes}
+  gem.description   = %q{Futures with interprocess communication.}
   gem.summary       = %q{Futures implemented on top of IChannel for interprocess communication.}
   gem.homepage      = 'https://github.com/havenwood#readme'
   gem.license       = 'MIT'
