@@ -10,17 +10,14 @@ Gem::Specification.new do |gem|
   gem.email         = ['shannonskipper@gmail.com']
   gem.description   = %q{Concurrent Futures with Processes}
   gem.summary       = %q{Futures implemented on top of IChannel for interprocess communication.}
-  gem.homepage      = 'https://github.com/Havenwood'
+  gem.homepage      = 'https://github.com/havenwood#readme'
 
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ['lib']
   
-  gem.add_development_dependency 'ichannel', '~> 6.1.1'
+  gem.add_development_dependency 'ichannel', '~> 7.1.0'
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rake'
   
-  gem.add_runtime_dependency 'ichannel', '~> 6.1.1'
-  
-  gem.signing_key = '/Users/shannonskipper/.gem/private/gem-private_key.pem'
-  gem.cert_chain  = ['/Users/shannonskipper/.gem/private/gem-public_cert.pem']
+  gem.add_runtime_dependency 'ichannel', '~> 7.1.0'
 end
