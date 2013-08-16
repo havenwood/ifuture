@@ -4,17 +4,17 @@ require 'ifuture/version'
 class IFuture
   def self.unix(serializer = Marshal, options = {}, &block)
     allocate.tap do |obj|
-      obj.send :initialize, IChannel.unix(serializer, options), &block
+      obj.send :initialize, IChannel.unix(serializer, options), block
     end
   end
 
   def self.redis(serializer = Marshal, options = {}, &block)
     allocate.tap do |obj|
-      obj.send :initialize, IChannel.redis(serializer, options), &block
+      obj.send :initialize, IChannel.redis(serializer, options), block
     end
   end
 
-  def initialize(channel, &block)
+  def initialize(channel, block)
     @channel = channel
     @thread = Process.detach fork { @channel.put(block.call) }
   end
