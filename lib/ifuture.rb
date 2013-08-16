@@ -2,21 +2,21 @@ require 'ichannel'
 require 'ifuture/version'
 
 class IFuture
-  def self.unix(serializer, options = {})
+  def self.unix(serializer = Marshal, options = {}, &block)
     allocate.tap do |obj|
-      obj.send :initialize, IChannel.unix(serializer, options)
+      obj.send :initialize, IChannel.unix(serializer, options), &block
     end
   end
 
-  def self.redis(serializer, options = {})
+  def self.redis(serializer = Marshal, options = {}, &block)
     allocate.tap do |obj|
-      obj.send :initialize, IChannel.redis(serializer, options)
+      obj.send :initialize, IChannel.redis(serializer, options), &block
     end
   end
 
-  def initialize(channel)
+  def initialize(channel, &block)
     @channel = channel
-    @thread = Process.detach fork { @channel.put yield }
+    @thread = Process.detach fork { @channel.put(block.call) }
   end
   private_class_method :new
 
