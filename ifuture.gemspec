@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = IFuture::VERSION
   gem.authors       = ['Shannon Skipper']
   gem.email         = ['shannonskipper@gmail.com']
-  gem.description   = %q{Futures implemented with processes.}
-  gem.summary       = %q{A Futures gem for Ruby implemented with IChannel for interprocess communication over a unix socket or Redis. Run some code in another process and get the result back later!}
+  gem.description   = %q{Futures over interprocess communication.}
+  gem.summary       = %q{A Futures gem for Ruby implemented with IChannel for interprocess communication over a Unix socket or via Redis. Run some code in another process and get the result back later!}
   gem.homepage      = 'https://github.com/havenwood#readme'
   gem.license       = 'MIT'
   gem.files         = `git ls-files`.split($/)
