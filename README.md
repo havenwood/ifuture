@@ -18,26 +18,17 @@ The Redis gem is required as well if you opt to use Redis instead of the default
 
 ```ruby
 require 'ifuture'
-
-future = IFuture.unix do
-  3.downto 0 do |n|
-    sleep 1
-    puts "#{n}..."
-  end
-  'Sekret!!'
+future = IFuture.unix Marshal do
+  sleep 2
+  'Put that in your unix socket and smoke it'
 end
 
 future.ready? # => false
-
-sleep 5 # => 5
-# 3...
-# 2...
-# 1...
-# 0...
-
+sleep 2
 future.ready? # => true
-future.value # => "Sekret!!"
+future.value # => "Put that in your unix socket and smoke it"
 ```
+
 ### Code Serialization Format
 
 The default serialization format is Marshal, but you can use JSON, YAML or other formats that implement the methods #load and #dump.
@@ -45,10 +36,9 @@ The default serialization format is Marshal, but you can use JSON, YAML or other
 ```ruby
 require 'ifuture'
 require 'json'
-
-future = IFuture.new JSON do
-  sleep 5
-  :human_readable
+future = IFuture.unix JSON do
+  sleep 2
+  {ok: true}
 end
 ```
 
@@ -58,13 +48,12 @@ By default iFuture uses IChannel with unix sockets for transferring serialized c
 
 ```ruby
 require 'ifuture'
-
 future = IFuture.redis Marshal, {host: 'localhost', key: 'readme'} do
   sleep 5
   42
 end
-```
 future.value # => 42
+```
 
 ## Contributing
 

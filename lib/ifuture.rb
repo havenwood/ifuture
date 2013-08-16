@@ -3,18 +3,23 @@ require 'ifuture/version'
 
 class IFuture
   def self.unix(serializer, options = {})
-    new(serializer, :unix, options)
+    allocate.tap do |obj|
+      obj.send :initialize, IChannel.unix(serializer, options)
+    end
   end
 
   def self.redis(serializer, options = {})
-    new(serializer, :redis, options)
+    allocate.tap do |obj|
+      obj.send :initialize, IChannel.redis(serializer, options)
+    end
   end
 
-  def initialize(serializer = Marshal, transport = :unix, options = {})
-    @channel = IChannel.send transport, serializer, options
+  def initialize(channel)
+    @channel = channel
     @thread = Process.detach fork { @channel.put yield }
   end
-  
+  private_class_method :new
+
   def ready?
     if defined? @value
       true
