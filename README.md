@@ -1,5 +1,5 @@
 # iFuture
-[![Build Status](https://secure.travis-ci.org/Havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
+[![Build Status](https://secure.travis-ci.org/havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Havenwood/ifuture)
 
 A Futures gem for Ruby implemented with [IChannel](https://github.com/robgleeson/ichannel) for interprocess communication over a unix socket or Redis. Run some code in another process and get the result back later!
@@ -10,7 +10,7 @@ The Future starts running right away, but isn't blocking because it runs in its 
 
 `gem install ifuture`
 
-The Redis gem is required as well if you opt to use Redis instead of the default unix socket transporter.
+The Redis gem is required as well if you opt to use Redis instead of the default Unix socket transporter.
 
 `gem install redis`
 
