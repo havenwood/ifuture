@@ -1,5 +1,5 @@
 require 'ichannel'
-require 'ifuture/version'
+require_relative 'ifuture/version'
 
 class IFuture
   def self.unix(serializer = Marshal, options = {}, &block)
