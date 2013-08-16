@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['shannonskipper@gmail.com']
   gem.description   = %q{Futures over interprocess communication.}
   gem.summary       = %q{A Futures gem for Ruby implemented with IChannel for interprocess communication over a Unix socket or via Redis. Run some code in another process and get the result back later!}
-  gem.homepage      = 'https://github.com/havenwood#readme'
+  gem.homepage      = 'https://github.com/havenwood/ifuture#readme'
   gem.license       = 'MIT'
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ['lib']
