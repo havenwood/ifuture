@@ -2,7 +2,7 @@ require_relative 'helper.rb'
 
 describe IFuture do
   before do
-    @future = IFuture.new { sleep 0.25; 'peppermint' }
+    @future = IFuture.unix { sleep 0.25; 'peppermint' }
   end
   
   describe 'before the value is ready' do
