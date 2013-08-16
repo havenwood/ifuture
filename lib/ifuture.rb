@@ -4,7 +4,7 @@ require 'ifuture/version'
 class IFuture
   def initialize serializer = Marshal, transport = :unix, options = nil
     @channel = IChannel.send transport, serializer, options
-    @thread = Process.detach fork { @channel.put yield }
+    @pid = fork { @channel.put yield }
   end
   
   def ready?
@@ -19,7 +19,7 @@ class IFuture
     if defined? @value
       @value
     else
-      @thread.join
+      Process.wait @pid
       @value = @channel.get
     end
   end
