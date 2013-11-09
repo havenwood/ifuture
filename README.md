@@ -1,10 +1,10 @@
-# iFuture
+# ifuture
 [![Build Status](https://secure.travis-ci.org/havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Havenwood/ifuture)
 
-A Futures gem for Ruby implemented with [IChannel](https://github.com/robgleeson/ichannel) for interprocess communication over a unix socket or Redis. Run some code in another process and get the result back later!
+ifuture is a Futures gem for Ruby that use processes forking rather than threads. This allows parallelism with MRI without the GIL blocking as it might with threads. ifuture is implemented with [IChannel](https://github.com/robgleeson/ichannel) for interprocess communication over a Unix socket or Redis. Run your code in another process and get the result back later!
 
-The Future starts running right away, but isn't blocking because it runs in its own fork and uses IChannel to communicate with the parent Process. This allows multithreading without the GIL blocking as it would with Futures implemented on Threads. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
+The Future starts running right away, but isn't blocking because it runs in its own forked process and uses ichannel to communicate with the parent process. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
 
 ## Installation
 
@@ -45,7 +45,7 @@ future.value #=> {"ok"=>true}
 
 ### IPC Transporter
 
-By default iFuture uses IChannel with unix sockets for transferring serialized code. An alternate choice is to use IChannel with Redis, locally or over the network.
+By default ifuture uses ichannel with unix sockets for transferring serialized code. An alternate choice is to use ichannel with Redis, locally or over the network.
 
 ```ruby
 require 'ifuture'
