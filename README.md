@@ -20,13 +20,13 @@ The Redis gem is required as well if you opt to use Redis instead of the default
 require 'ifuture'
 future = IFuture.unix Marshal do
   sleep 2
-  'Put that in your unix socket and smoke it'
+  'result back from the child process!'
 end
 
-future.ready? # => false
+future.ready? #=> false
 sleep 2
-future.ready? # => true
-future.value # => "Put that in your unix socket and smoke it"
+future.ready? #=> true
+future.value #=> "result back from the child process!"
 ```
 
 ### Code Serialization Format
@@ -40,6 +40,7 @@ future = IFuture.unix JSON do
   sleep 2
   {ok: true}
 end
+future.value #=> {"ok"=>true}
 ```
 
 ### IPC Transporter
@@ -52,7 +53,7 @@ future = IFuture.redis Marshal, {host: 'localhost', key: 'readme'} do
   sleep 5
   42
 end
-future.value # => 42
+future.value #=> 42
 ```
 
 ## Contributing
@@ -60,3 +61,4 @@ future.value # => 42
 1. Fork it
 2. Commit your changes
 3. Create a pull request
+4.  :cake:
