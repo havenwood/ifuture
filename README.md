@@ -2,7 +2,13 @@
 [![Build Status](https://secure.travis-ci.org/havenwood/ifuture.png?branch=master)](http://travis-ci.org/havenwood/ifuture)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/havenwood/ifuture)
 
-ifuture is a Futures gem for Ruby that use processes forking rather than threads. This allows parallelism with MRI without the GIL blocking as it might with threads. ifuture is implemented with [ichannel](https://github.com/robgleeson/ichannel) for interprocess communication over a Unix socket or Redis. Run your code in another process and get the result back later!
+## Deprecation Notice
+
+### THIS GEM IS DEPRECATED!
+
+ifuture was implemented with the no-longer-supported ichannel gem for interprocess communication over either a Unix Socket or Redis. Futures can be implemented more elegantly and with less overhead by intraprocess communication with a GVL-less Ruby like [JRuby](https://github.com/jruby/jruby#readme), [Rubinius](https://github.com/rubinius/rubinius#readme) or Ruby 3+.
+
+ifuture uses processes forking rather than threads. This allows parallelism with early versions of MRI without the GVL blocking as it might with threads. Run your code in another process and get the result back later!
 
 The Future starts running right away, but isn't blocking because it runs in its own forked process and uses ichannel to communicate with the parent process. If the value is asked for and it is ready, it will be returned right away. If the value is asked for early, the Future blocks until delivery.
 
@@ -55,10 +61,3 @@ future = IFuture.redis Marshal, {host: 'localhost', key: 'readme'} do
 end
 future.value #=> 42
 ```
-
-## Contributing
-
-1. Fork it
-2. Commit your changes
-3. Create a pull request
-4.  :cake:
